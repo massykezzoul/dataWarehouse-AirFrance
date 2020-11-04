@@ -9,7 +9,7 @@ DROP TABLE dimension_date;
 
 CREATE TABLE dimension_date
 (
-    id NUMBER(5) PRIMARY KEY,
+    id NUMBER(5) PRIMARY KEY AUTO_INCREMENT,
     format_date VARCHAR2(20),
     jour_de_semaine NUMBER(1) CHECK(jour_de_semaine IN (1,2,3,4,5,6,7)),
     num_jour NUMBER(2) CHECK(num_jour BETWEEN 1 AND 31),
@@ -28,7 +28,7 @@ CREATE TABLE dimension_date
 );
 CREATE TABLE dimension_heureJour
 (
-    id NUMBER(5) PRIMARY KEY,
+    id NUMBER(5) PRIMARY KEY AUTO_INCREMENT,
     heure_jour NUMBER(2) NOT NULL,
     minute_heure NUMBER(2) NOT NULL, 
     fuseau_horaire VARCHAR2(5) NOT NULL, 
@@ -37,7 +37,7 @@ CREATE TABLE dimension_heureJour
 );
 CREATE TABLE dimension_avion 
 (
-    id NUMBER(5) PRIMARY KEY,
+    id NUMBER(5) PRIMARY KEY AUTO_INCREMENT,
     nom_avion VARCHAR2(10) NOT NULL,
     capacite NUMBER(5),
     conso_par_km NUMBER(5),
@@ -54,7 +54,7 @@ CREATE TABLE dimension_avion
 
 CREATE TABLE dimension_vol
 (
-    id NUMBER(5) PRIMARY KEY,
+    id NUMBER(5) PRIMARY KEY AUTO_INCREMENT,
     num_vol NUMBER(10) NOT NULL,
     num_avion NUMBER(5), 
     FOREIGN KEY(num_avion) REFERENCES dimension_avion(id),
@@ -70,9 +70,22 @@ CREATE TABLE dimension_vol
     charge_enregistre_en_soute NUMBER(5)
 );
 
+CREATE TABLE dimension_client
+(
+    id NUMBER(5) PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR2(20),
+    prenom VARCHAR2(20),
+    date_naissance date,
+    age NUMBER(3),
+    tranche_age VARCHAR2(20) CHECK (tranche_age IN ('0-18','19-26','26-40','41+')),
+    nationalite VARCHAR2(20),
+    fidelite VARCHAR2(3) CHECK (fidelite IN ('oui','non')
+);
+
+
 CREATE TABLE dimension_aereport
 (
-    id NUMBER(5) PRIMARY KEY,
+    id NUMBER(5) PRIMARY KEY AUTO_INCREMENT,
     ville VARCHAR2(20) NOT NULL,    
     pays VARCHAR2(20) NOT NULL,
     num_rue NUMBER(3) NOT NULL,
@@ -104,6 +117,8 @@ CREATE TABLE ventes_billets
     FOREIGN KEY(aereport_arrivee) REFERENCES dimension_aereport(id),
     num_vol NUMBER(5),
     FOREIGN KEY(num_vol) REFERENCES dimension_vol(id),
+    num_client NUMBER(5),
+    FOREIGN KEY(num_client) REFERENCES dimension_client(id),
     prix_billet NUMBER(4),
     type_billet VARCHAR2(20),
     poids_autorise NUMBER(5),
