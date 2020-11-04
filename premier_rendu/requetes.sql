@@ -57,7 +57,6 @@ AND fidelite = 'non';
      le nombre de  clients qui ont  une carte fidelité 
 */
 
-
 SELECT count(*) as nb_client 
 FROM ventes_billets,dimension_client
 WHERE ventes_billets.num_client = dimension_client.id
