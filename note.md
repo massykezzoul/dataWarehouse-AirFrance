@@ -36,7 +36,7 @@ Comme tout entreprise, l'objectif sera de maximiser les revenu tout en minimisan
 
 Air France est l'une des leader du transport aérien européan. Elle est longtemps rester sur une image de chic à la française en proposant pour ses clients des services haut de gammes. Mais depuis l'arrivé des vols low-cost, Air France est en baisse de revenu ce qui l'a poussé à proposer pour tous ces vols des billet au prix reduit (seconde classe).
 
-### Services et produits
+### Services et produitsExpliquez pourquoi et comment
 
 Air France proposent plusieurs types de services, notament :
 

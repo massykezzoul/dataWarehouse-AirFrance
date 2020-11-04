@@ -168,7 +168,6 @@ Air France proposent plusieurs types de services, notament :
   \item Déterminer si un vol rapporte plus ou moins qu'un autre vol.
   \item Quelle est la positon de chaque avion (Gérer au mieux la flotte d'avions disponible).
   \item la rentabilité de chaque type avion (Exemple: consommation trop forte de carburant d'un avion => le remplacer par un autre)
-  \item Affectation de l'equipage à un vol (quel pilote pour quel avion ...)
 \end{itemize}
 
 \section{Q2 Les actions et opérations à tracer pour récupérer ces informations. : }
@@ -181,15 +180,14 @@ Air France proposent plusieurs types de services, notament :
           \item le prix de vente du billet.
           \item Nombre de place occupé dans l'avion.
           \item rentabilité du vol (revenu/dépenses)
-          \item Quel equipage pour quel vol
         \end{itemize}
 \end{itemize}
 \begin{itemize}
-  \item Organisation des avions et vols
+  \item Gestion des stocks d'avions
         \begin{itemize}
-          \item position de chaque avion (aéroports)
+          \item position de chaque avion à la fin de la journée (aéroports)
           \item consommation d'un avion (carburant et divers coûts)
-          \item capacité maximal
+          \item nombre de vol effectués par un avion.
         \end{itemize}
 \end{itemize}
 
@@ -204,10 +202,11 @@ Air France proposent plusieurs types de services, notament :
         \end{itemize}
 \end{itemize}
 \begin{itemize}
-  \item Organisation des avions et vols
+  \item Gestion des stocks d'avions
         \begin{itemize}
-          \item Analyser la position de chaque avion pour une heure donnée afin de determiner la meilleur assignation vol <- avion
-          \item Analyser le coût moyen d'un avion
+          \item Analyser la position de chaque avion à la fin d'une journée.
+          \item Analyser le coût moyen d'un avion en carburant.
+          \item Comparer les rentabilité des avions(CÀD: recettes - dépenses).
         \end{itemize}
 \end{itemize}
 
@@ -249,16 +248,18 @@ Pour chaque billet vendu, on enregistre les mesures suivantes :
 
 Une ligne de cette table des faits represente un avion à un certain moment. Les mesures sont :
 \begin{itemize}
-  \item Le nombre de vol effectués par l'avion - Non-Additive
-  \item L'État géneral de l'avion - Non-Additive
+  \item Le nombre de vol effectués par l'avion - Additive
+  \item Le nombre de KM parcouru par l'avion - Additive
+  \item Carburant consommé - Additive
+  \item recette - Additive
 \end{itemize}
 
 \section{Q8 Réponses au traitements}
 
 On peut répondre aux traitements qu'on vient d'indiquer avec le modèle qu'on a mis en place. Pour chaque traitement, on peut récupérer facilement l'information demandée, on va détaillé ci-dessous deux traitements (un traitement par action) : 
 \begin{itemize}
-  \item Si on veut analyser la demande vers une destination (le nombre de billets vendu) pour une pèriode donnée, on doit recupérer tout les vols d'une pèriode en faisant une jointure entre la table de faits Ventes de Billets avec les tables de dimension date, vol et aéreport, ensuite en groupant par destination, avec un count(*) et un order by, on aura le nombre de vol vers chaque destination dans cette pèriode par ordre croissant. Par cette requête, on peut savoir la destination la plus demandée pendant une pèriode donnée.
-  \item Si on veut analyser la position de chaque avion pour une heure donnée (si elle existe), on doit intéroger la table de faits flottes d'avions avec une condition de l'heure donnée. Par cette requête, on peut savoir où se trouve chaque avion et on pourra faire une assignation avion -> vol selon cette information. 
+  \item Si on veut analyser la demande vers une destination (le nombre de billets vendu) pour une pèriode donnée, on doit recupérer tout les vols d'une pèriode en faisant une jointure entre la table de faits Ventes de Billets avec les tables de dimension date, vol et aéreport. Ensuite en regroupant par destination, avec un count(*) et un order by, on aura le nombre de vol vers chaque destination dans cette pèriode par ordre croissant. Par cette requête, on peut savoir la destination la plus demandée pendant une pèriode donnée.
+  \item L'analyse du coût moyen d'un avion en carburant se fait par une requête simple qui fait la jointure entre la table des faits (stocks d'avions) et la dimension avions en affichant pour chaque avions la moyenne du calcul suivant (carburant consommé * prix du carburant).
 \end{itemize}
 
 
