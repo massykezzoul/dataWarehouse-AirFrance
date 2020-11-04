@@ -9,7 +9,7 @@ AND num_annee = 2019
 AND ville = 'Montpellier';
 
 /* R2 
-    nombre de billtes enregistrés par vol 
+    nombre de billets enregistrés par vol 
 */
 
 SELECT num_vol,count(*) as nb_billets_vol
@@ -25,7 +25,6 @@ SELECT num_vol,count(*) as nb_billets_vol, capacite
 FROM ventes_billets, dimension_vol
 WHERE dimension_vol.id = ventes_billets.num_vol
 GROUP BY ventes_billets.num_vol;
-
 
 /* R4 
     nombre de billtes enregistrés par client (pour faire une fidelité a ce client)

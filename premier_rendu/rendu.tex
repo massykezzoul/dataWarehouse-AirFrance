@@ -18,9 +18,14 @@
 	bookmarks=true,
 }
 
+
 % Bout de code
 \usepackage{listings}
 \usepackage{color}
+\lstset{
+  extendedchars=true,
+  literate={á}{{\'a}}1 {â}{{\^a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\'e}}1 {û}{{\^u}}1  {ê}{{\^e}}1,
+}
 
 % Commande pour notation 'NB :' (nota bene)
 \newcommand\nb[1][0.3]{N\kern-#1emB : }
@@ -341,11 +346,11 @@ Veuillez voir le code en annexe.
 
 \section{Q12 Requêtes analytique}
 
-\lstinputlisting{requetes.sql}
+\lstinputlisting[language=SQL]{requetes.sql}
 
 \section{Q13 Les vues materialisées} 
 
-Dans notre cas, on a que la requête 3 qui peut utiliser une vue matérialisée (à partir de la requête 2) : 
+Dans notre cas, on a que la requête 3 qui peut utiliser une vue matérialisée (\'a partir de la requête 2) : 
 
 \begin{lstlisting}
   CREATE MATERIALIZED VIEW nb_billets_vol (num_vol,nb_billets_par_vol)
