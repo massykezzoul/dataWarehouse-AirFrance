@@ -17,14 +17,15 @@ FROM ventes_billets, dimension_vol
 WHERE dimension_vol.id = ventes_billets.num_vol
 GROUP BY ventes_billets.num_vol;
 
-/* R3 
-    avoir la tranche d'age de chaque client pour un vol donné
+/* R2 
+    nombre de billtes enregistrés par vol comparé a la capacite du vol
 */
 
-SELECT tranche_age
-FROM ventes_billets, dimension_client
-WHERE ventes_billets.num_client = dimension_client.id 
-AND num_vol = 1;
+SELECT num_vol,count(*) as nb_billets_vol, capacite
+FROM ventes_billets, dimension_vol
+WHERE dimension_vol.id = ventes_billets.num_vol
+GROUP BY ventes_billets.num_vol;
+
 
 /* R4 
     nombre de billtes enregistrés par client (pour faire une fidelité a ce client)

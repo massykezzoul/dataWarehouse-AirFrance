@@ -341,7 +341,29 @@ Veuillez voir le code en annexe.
 
 \section{Q12 Requêtes analytique}
 
-\section{Q13 Les vues materialisées}
+\lstinputlisting{requetes.sql}
+
+\section{Q13 Les vues materialisées} 
+
+Dans notre cas, on a que la requête 3 qui peut utiliser une vue matérialisée (à partir de la requête 2) : 
+
+\begin{lstlisting}
+  CREATE MATERIALIZED VIEW nb_billets_vol (num_vol,nb_billets_par_vol)
+  AS 
+  SELECT num_vol,count(*)
+  FROM ventes_billets, dimension_vol
+  WHERE dimension_vol.id = ventes_billets.num_vol
+  GROUP BY ventes_billets.num_vol;
+\end{lstlisting}
+
+Après la création de cette vue matérialisée la 3ème requête devient : 
+
+\begin{lstlisting}
+  SELECT dimension.id,nb_billets_par_vol,capacite
+  FROM nb_billets_vol, dimension_vol
+  WHERE dimension_vol.id = nb_billets_vol.num_vol;
+\end{lstlisting}
+
 
 
 
