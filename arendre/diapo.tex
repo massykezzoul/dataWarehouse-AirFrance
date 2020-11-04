@@ -1,0 +1,173 @@
+\documentclass[10pt,handout]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    left = \flqq{},%
+    right = \frqq{},%
+    leftsub = \flq{},%
+    rightsub = \frq{} %
+]{dirtytalk} 	% for \say{}
+\usepackage{xcolor} 	% for color text
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{array}
+
+\usetheme{Frankfurt}
+\usetheme{CambridgeUS}
+\usetheme{JuanLesPins}
+%\usetheme{Montpellier}
+%\usetheme{Madrid}
+
+\usecolortheme{dolphin}
+
+\useinnertheme{circles}
+\usefonttheme{structurebold}
+\useoutertheme{default}
+
+%\hypersetup{pdfpagemode=FullScreen}
+
+\title[Mini-Projet Entrepôt de données]{AirFrance}
+\author[Bouzidi, Elhouiti, Kezzoul]{Bouzidi Belkacem - Elhouiti Chakib \\ Kezzoul Massili}
+\institute[]{Université de Montpellier}
+\date{\today}
+
+% Pour inserer une frame de sommaire avant chaque debut de section
+\AtBeginSection[]
+{
+  \placelogofalse
+  \begin{frame}
+    \tableofcontents[hideothersubsections,currentsection,subsectionstyle=show/shaded/hide]
+  \end{frame}
+  \placelogotrue
+}
+
+% Mettre les listes en triangle
+\setbeamertemplate{itemize item}[triangle]
+
+%Insertion d'un logo
+\newif\ifplacelogo % create a new conditional
+\placelogotrue % set it to true
+\logo{\ifplacelogo\includegraphics[height=12mm]{img/univ-montpellier.png}\fi}
+
+%------------------------------------------------------%
+% page de titre
+%------------------------------------------------------%
+\begin{document}
+
+\placelogofalse
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\placelogotrue
+
+%------------------------------------------------------%
+% Tables des matières
+%------------------------------------------------------%
+
+\begin{frame}{table}
+	\frametitle{Sommaire}
+	\tableofcontents
+\end{frame}
+
+%------------------------------------------------------%
+% Intro
+%------------------------------------------------------%
+\section{Introduction}
+
+\subsection{Présentation du projet}
+
+\begin{frame}{Introduction}{Présentation du projet}
+
+\end{frame}
+
+\placelogofalse
+\begin{frame}{Objectif de l'Entrepôt de données}
+  
+\end{frame}
+\placelogotrue
+
+\subsection{Présentation de l'entreprise}
+\begin{frame}{Présentation de l'entreprise}{AirFrance}
+  \begin{block}{Base de données}
+    Une base de données (en anglais database), permet de stocker et de manipuler des données brutes ou d'informations.
+  \end{block}
+
+  \begin{block}{Système de gestion de base de données}
+    Un SGBD est un logiciel système servant à stocker, à manipuler ou gérer, et à partager des informations dans une base de données, en garantissant la qualité, la pérennité et la confidentialité des informations, tout en cachant la complexité des opérations.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Quelques chiffres}
+    
+\end{frame}
+
+
+%------------------------------------------------------%
+% Modélisation
+%------------------------------------------------------%
+
+\section{La conception}
+
+\subsection{Identification des informations à tracer}
+\begin{frame}{Identification des informations à tracer}
+  
+\end{frame}
+
+\subsection{Data-Mart}
+
+\begin{frame}{Ventes des billets}
+
+\end{frame}
+
+\begin{frame}{Stock d'avions}
+    
+\end{frame}
+
+%------------------------------------------------------%
+% Implémentation
+%------------------------------------------------------%
+\section{Implémentation et requêtage}
+
+\begin{frame}{Estimation de la taille des tables}
+    
+\end{frame}
+
+\subsection{Implémentation}
+
+\begin{frame}{Implémentation des Data-Mart}
+
+\end{frame}
+
+\subsection{Requêtage}
+\begin{frame}{Les requêtes}
+    
+\end{frame}
+
+%------------------------------------------------------%
+% Démonstration
+%------------------------------------------------------%
+
+\section{Démonstration}
+
+%------------------------------------------------------%
+% Conclusion
+%------------------------------------------------------%
+
+\section{Conclusion et Perspective}
+
+\begin{frame}{Perspective}
+
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    Merci pour votre attention.
+  \end{center}
+\end{frame}
+
+\end{document}
