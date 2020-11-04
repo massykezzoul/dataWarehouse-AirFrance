@@ -1,28 +1,30 @@
 DROP TABLE ventes_billets;
 DROP TABLE dimension_aereport;
 DROP TABLE dimension_vol;
+DROP TABLE dimension_avion;
 DROP TABLE dimension_heureJour;
 DROP TABLE dimension_date;
+
 
 
 CREATE TABLE dimension_date
 (
     id NUMBER(5) PRIMARY KEY,
     format_date VARCHAR2(20),
-    jour_de_semaine NUMBER(1) CHECK  (jour_de_semaine IN (1,2,3,4,5,6,7)),
-    num_jour NUMBER(2) CHECK (num_jour BETWEEN 1 AND 31),
-    num_mois NUMBER(2) CHECK (num_mois BETWEEN 1 AND 12),
     num_semaine NUMBER(2),
     num_annee NUMBER(4),
-    num_trimestre NUMBER(1) CHECK (num_trimestre IN (1,2,3,4)),
-    num_semestre NUMBER(1) CHECK (num_semestre IN (1,2)),
     nom_jour VARCHAR2(8), 
     nom_mois VARCHAR2(10),
     annee_mois VARCHAR2(7),
+    date_sql DATE,
+    evenement_majeur VARCHAR2(30),
     indicateur_jour_ferie VARCHAR2(9) CHECK (indicateur_jour_ferie IN ("férié","non férié")),
     indicateur_jour_de_semaine VARCHAR2(15) CHECK (indicateur_jour_de_semaine IN ("weekend","jour de semaine")),
-    date_sql date,
-    evenement_majeur VARCHAR2(30)
+    num_jour NUMBER(2) CHECK (num_jour BETWEEN '1' AND '31'),
+    num_mois NUMBER(2) CHECK (num_mois BETWEEN '1' AND '12'),
+    num_semestre NUMBER(1) CHECK (num_semestre IN (1,2)),
+    num_trimestre NUMBER(1) CHECK (num_trimestre IN (1,2,3,4)),
+    jour_de_semaine NUMBER(1) CHECK (jour_de_semaine IN (1,2,3,4,5,6,7))
  
 );
 CREATE TABLE dimension_heureJour
@@ -110,4 +112,13 @@ CREATE TABLE ventes_billets
     type_billet VARCHAR2(20),
     poids_autorise NUMBER(5),
     poids_enregistre NUMBER(5),
+);
+
+CREATE TABLE flotte_avion
+(
+    num_avion NUMBER(5) FOREIGN KEY REFERENCES dimension_avion(id),
+    date_enregistrement NUMBER(5) FOREIGN KEY REFERENCES dimension_date(id),
+    heure_enregistrement NUMBER(5) FOREIGN KEY REFERENCES dimension_heureJour(id),
+    aereport NUMBER(5) FOREIGN KEY REFERENCES dimension_aereport(id),
+    etat_generale VARCHAR2(20)
 );
