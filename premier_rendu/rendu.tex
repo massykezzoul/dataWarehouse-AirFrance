@@ -203,6 +203,9 @@ Air France proposent plusieurs types de services, notament :
           \item Analyser la demande vers une destination (le nombre de billets vendu) selon la période
           \item Analyser le ratio nombre de place occupé / capacité dans l'avion pour calculé le prix du billet
           \item Comparer le ratio revenu / dépenses pour chaque vol (rentabilité)
+          \item analyser la tranche d'age des client.
+          \item analyser le nombre de billets enregistré pour chaque client.
+          \item anlayser si un client a une carte de fidelité ou non.
         \end{itemize}
 \end{itemize}
 \begin{itemize}
@@ -262,7 +265,7 @@ Une ligne de cette table des faits represente un avion à un certain moment. Les
 
 On peut répondre aux traitements qu'on vient d'indiquer avec le modèle qu'on a mis en place. Pour chaque traitement, on peut récupérer facilement l'information demandée, on va détaillé ci-dessous deux traitements (un traitement par action) : 
 \begin{itemize}
-  \item Si on veut analyser la demande vers une destination (le nombre de billets vendu) pour une pèriode donnée, on doit recupérer tout les vols d'une pèriode en faisant une jointure entre la table de faits Ventes de Billets avec les tables de dimension date, vol et aéreport. Ensuite en regroupant par destination, avec un count(*) et un order by, on aura le nombre de vol vers chaque destination dans cette pèriode par ordre croissant. Par cette requête, on peut savoir la destination la plus demandée pendant une pèriode donnée.
+  \item Si on veut analyser la demande vers une destination (le nombre de billets vendu) pour une pèriode donnée, on doit recupérer tout les vols d'une pèriode en faisant une jointure entre la table de faits Ventes de Billets avec les tables de dimension date, vol et aéroport. Ensuite en regroupant par destination, avec un count(*) et un order by, on aura le nombre de vol vers chaque destination dans cette pèriode par ordre croissant. Par cette requête, on peut savoir la destination la plus demandée pendant une pèriode donnée.
   \item L'analyse du coût moyen d'un avion en carburant se fait par une requête simple qui fait la jointure entre la table des faits (stocks d'avions) et la dimension avions en affichant pour chaque avions la moyenne du calcul suivant (carburant consommé * prix du carburant).
 \end{itemize}
 
@@ -274,7 +277,7 @@ On peut répondre aux traitements qu'on vient d'indiquer avec le modèle qu'on a
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\textwidth]{img/faitsVentesBillets.png}
-  
+       
 \end{figure}
 \subsection{Dimension date}
 \begin{figure}[h]
@@ -314,7 +317,7 @@ On peut répondre aux traitements qu'on vient d'indiquer avec le modèle qu'on a
 
   
   \includegraphics[width=1\textwidth]{img/faitsStockAvions.png}
-  
+ 
 
 
 \subsection{Dimension avion}
@@ -324,6 +327,14 @@ On peut répondre aux traitements qu'on vient d'indiquer avec le modèle qu'on a
   \includegraphics[width=1\textwidth]{img/avion.png}
   
 
+\section{Q10 Calcul de la taille du DataWarehouse}
+
+\section{Q11 Implémentation}
+Veuillez voir le code en annexe.
+
+\section{Q12 Requêtes analytique}
+
+\section{Q13 Les vues materialisées}
 
 
 
