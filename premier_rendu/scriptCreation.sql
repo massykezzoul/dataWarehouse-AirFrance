@@ -43,7 +43,7 @@ CREATE TABLE dimension_avion
     capacite NUMBER(5),
     conso_par_km NUMBER(5),
     reservoir_carburant NUMBER(4),
-    type_carburant VARCHAR2(20),
+    prix_carburant NUMBER(5),
     impact_envorinnement VARCHAR2(20),
     classe_avion VARCHAR2(20),
     vitesse_max NUMBER(4),

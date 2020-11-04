@@ -63,3 +63,26 @@ FROM ventes_billets,dimension_client
 WHERE ventes_billets.num_client = dimension_client.id
 AND fidelite = 'oui';
 
+/* R8
+    Calculer la rentabilité de chaque avion
+ */
+SELECT a.nom_avion , s.recette - s.carburant_consomme * a.prix_carburant
+FROM dimension_avions a, stock_avions s
+WHERE s.num_avion = a.id
+GROUP BY s.num_avion;
+
+/* R9
+    Calculer la moyenne de carburant consommé par avion par KM parcouru et la comparé avec la conso théorique
+ */
+SELECT a.nom_avion , AVG(s.carburant_consomme / s.nombre_km), a.conso_par_km
+FROM dimension_avions a, stock_avions s
+WHERE s.num_avion = a.id
+GROUP BY s.num_avion, s.date_jour;
+
+/* R10
+    Calculer la moyenne du coût par vol pour chaque avion
+ */
+SELECT a.nom_avion , s.carburant_consomme * a.prix_carburant / nombre_vol
+FROM dimension_avions a, stock_avions stock_avions
+WHERE s.num_avion = a.id
+GROUP BY s.num_avion;
