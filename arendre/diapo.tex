@@ -29,20 +29,11 @@
 
 %\hypersetup{pdfpagemode=FullScreen}
 
-\title[Mini-Projet Entrepôt de données]{AirFrance}
+\title[Mini-Projet Entrepôt de données]{Air France}
 \author[Bouzidi, Elhouiti, Kezzoul]{Bouzidi Belkacem - Elhouiti Chakib \\ Kezzoul Massili}
 \institute[]{Université de Montpellier}
 \date{\today}
 
-% Pour inserer une frame de sommaire avant chaque debut de section
-\AtBeginSection[]
-{
-  \placelogofalse
-  \begin{frame}
-    \tableofcontents[hideothersubsections,currentsection,subsectionstyle=show/shaded/hide]
-  \end{frame}
-  \placelogotrue
-}
 
 % Mettre les listes en triangle
 \setbeamertemplate{itemize item}[triangle]
@@ -64,110 +55,84 @@
 
 \placelogotrue
 
-%------------------------------------------------------%
-% Tables des matières
-%------------------------------------------------------%
-
-\begin{frame}{table}
-	\frametitle{Sommaire}
-	\tableofcontents
-\end{frame}
 
 %------------------------------------------------------%
 % Intro
 %------------------------------------------------------%
 \section{Introduction}
-
-\subsection{Présentation du projet}
-
-\begin{frame}{Introduction}{Présentation du projet}
-
-\end{frame}
-
 \placelogofalse
-\begin{frame}{Objectif de l'Entrepôt de données}
-  
-\end{frame}
-\placelogotrue
-
-\subsection{Présentation de l'entreprise}
 \begin{frame}{Présentation de l'entreprise}{AirFrance}
-  \begin{block}{Base de données}
-    Une base de données (en anglais database), permet de stocker et de manipuler des données brutes ou d'informations.
+  \begin{block}{Objectifs}
+    Le premier objectif d’Air Fance est de développer son réseau, de développer ses possibilités de destinations tout en réduisant les coûts. Au même temps assurer une prestation de service de haute qualitée.
   \end{block}
 
-  \begin{block}{Système de gestion de base de données}
-    Un SGBD est un logiciel système servant à stocker, à manipuler ou gérer, et à partager des informations dans une base de données, en garantissant la qualité, la pérennité et la confidentialité des informations, tout en cachant la complexité des opérations.
+  \begin{block}{Position sur le marché}
+    Air France est l’une des leader du transport aérien européen.
   \end{block}
 
 \end{frame}
 
-\begin{frame}{Quelques chiffres}
-    
+\begin{frame}{Analyse du cas}
+  \begin{block}{Identification des informations à tracer}
+    \begin{itemize}
+     \item la date de la vente.
+     \item le lieux de depart et d’arrivé(distination en vogue).
+     \item le prix de vente du billet.
+     \item Nombre de place occupé dans l’avion.
+     \item rentabilité du vol (revenu/dépenses)
+     \item La tranche de chaque client.
+     \item La fidelité de chaque client.
+     \item Nombre de billets enregistrés pour chaque client
+     \item position de chaque avion à la fin de la journée (aéroports)
+     \item consommation d’un avion (carburant et divers coûts)
+     \item nombre de vol effectués par un avion.
+    \end{itemize}
+  \end{block}
 \end{frame}
-
 
 %------------------------------------------------------%
 % Modélisation
 %------------------------------------------------------%
 
-\section{La conception}
-
-\subsection{Identification des informations à tracer}
-\begin{frame}{Identification des informations à tracer}
-  
-\end{frame}
-
-\subsection{Data-Mart}
+\section{Modélisation}
 
 \begin{frame}{Ventes des billets}
-
+  \begin{figure}
+    \includegraphics[width=12cm]{img/VenteBillet.png}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Stock d'avions}
-    
+  \begin{figure}
+    \includegraphics[width=12cm]{img/flotteAvions.png}
+  \end{figure}
 \end{frame}
 
 %------------------------------------------------------%
 % Implémentation
 %------------------------------------------------------%
-\section{Implémentation et requêtage}
-
-\begin{frame}{Estimation de la taille des tables}
-    
+\section{Requêtage}
+\begin{frame}{Requêtes analytiques}
+  blabla
 \end{frame}
 
-\subsection{Implémentation}
+\section{Estimation de la taille de l'entrepôt}
+\begin{frame}{Estimation de la taille de l'entrepôt}
+  \begin{figure}
+    \includegraphics[width=12cm]{img/estimation_taille.png}
+  \end{figure}
+\end{frame}
+
+\section{Implémentation}
 
 \begin{frame}{Implémentation des Data-Mart}
-
+  \begin{block}{Création des tables}
+    Création des tables de dimension en premier, ensuite la création des tables de faits.
+  \end{block}
+  \begin{block}{Vues}
+    Utilisage des vues pour faciliter une reqûete analytique qui utilise le résultat d'une autre reqûete (un calcul).
+  \end{block}
 \end{frame}
 
-\subsection{Requêtage}
-\begin{frame}{Les requêtes}
-    
-\end{frame}
-
-%------------------------------------------------------%
-% Démonstration
-%------------------------------------------------------%
-
-\section{Démonstration}
-
-%------------------------------------------------------%
-% Conclusion
-%------------------------------------------------------%
-
-\section{Conclusion et Perspective}
-
-\begin{frame}{Perspective}
-
-\end{frame}
-
-\begin{frame}
-  \begin{center}
-    Merci pour votre attention.
-  \end{center}
-\end{frame}
 
 \end{document}
