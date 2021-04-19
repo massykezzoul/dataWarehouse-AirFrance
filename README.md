@@ -1,8 +1,16 @@
 # Entrepôt de données Air France
 
-## Q1 Analyse du cas
+L’objectif du projet est de concevoir, implémenter et interroger un entrepôt de données permettant à une entreprises d’améliorer sa position dans le marché. L'entreprise considérée ici est [Air France](https://wwws.airfrance.fr/).
+
+## Structuration du depôt
+
+Le code source pour la création de l'entrepôt est sous le dossier [`src/`](./src/). Plus d'informations sur la modélisation sont décrites dans [le rapport](./doc/rapport.pdf) de projet.
+
+## Analyse du cas
 
 ### Objectif de l'entreprise
+
+Le premier objectif d’Air Fance est de développer son réseau, de développer ses possibilités de destinations tout en réduisant les coûts. Au même temps assurer une prestation de service de haute qualitée.
 
 #### Revenu :
 
@@ -19,7 +27,7 @@
 - la maintenance de l'avion,
 - L'achat de nouveaux avions...
 
-Comme tout entreprise, l'objectif sera de maximiser les revenu tout en minimisant les dépenses.
+Comme toute entreprise, l'objectif sera de maximiser les revenus tout en minimisant les dépenses.
 
 #### Quelques chiffres d'Air France:
 
@@ -58,7 +66,7 @@ Les divers formes de revenu de l'entreprise sont cité plus haut.
 + la rentabilité de chaque type avion (Exemple: consommation trop forte de carburant d'un avion => le remplacer par un autre)
 + Affectation de l'equipage à un vol (quel pilote pour quel avion ...)
 
-## Q2 Les actions et opérations à tracer pour récupérer ces informations.
+## Les actions et opérations à tracer
 
 + Ventes des billets/vols
   + la date de la vente.
@@ -72,7 +80,7 @@ Les divers formes de revenu de l'entreprise sont cité plus haut.
   + consommation d'un avion (carburant et divers coûts)
   + capacité maximal
 
-## Q3 Traitement possibles
+## Traitements possibles
 
 + Ventes des billes/vols
   + Analyser la demande vers une destination (le nombre de billets vendu) selon la période
@@ -82,12 +90,13 @@ Les divers formes de revenu de l'entreprise sont cité plus haut.
   + Analyser la position de chaque avion afin de determiner la meilleur assignation vol <- avion
   + Analyser le coût moyen d'un avion
 
-## Q4 Ordonnez les actions par ordre d’importance / rentabilité potentielle
+## Actions par ordre d’importance / rentabilité potentielle
 
 1- Ventes des billets/vols
 2- Organisation des avions et vols
 
-## Q5 Identifiez les deux actions / opérations les plus importantes à analyser
 
-1- Ventes des billets/vols
-2- Organisation des avions et vols
+## Auteurs
+
+- Chakib Elhouiti -> celhouiti@gmail.com
+- Massili Kezzoul -> massy.kezzoul@gmail.com
